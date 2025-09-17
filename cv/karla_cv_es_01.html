@@ -22,21 +22,29 @@
             min-height: 297mm;
             margin: 0 auto;
             background: white;
-            display: flex;
+            position: relative;
             box-shadow: 0 0 20px rgba(0,0,0,0.1);
         }
         
         .header {
-            position: absolute;
             top: 0;
             left: 0;
             right: 0;
             height: 200px;
-            background: linear-gradient(135deg, #666 0%, #333 100%);
+            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            z-index: 2;
+        }
+
+        .header-inner {
+            max-width: 210mm;
+            width: 100%;
             display: flex;
             align-items: center;
             padding: 40px 60px;
-            color: white;
         }
         
         .profile-image {
@@ -57,7 +65,7 @@
         }
         
         .header-content h1 {
-            font-size: 48px;
+            font-size: 38px;
             font-weight: 300;
             margin-bottom: 10px;
         }
@@ -68,11 +76,20 @@
             text-transform: uppercase;
             letter-spacing: 2px;
         }
+
+        .contact-header {
+            font-size: 16px;
+            font-weight: 300;
+            margin-top: 15px;
+            letter-spacing: 0.5px;
+            opacity: 0.95;
+        }
         
         .main-content {
             display: flex;
-            margin-top: 200px;
             min-height: calc(297mm - 200px);
+            position: relative;
+            z-index: 1;
         }
         
         .sidebar {
@@ -146,6 +163,12 @@
             color: #333;
             margin-bottom: 5px;
         }
+
+        .job h4 {
+            font-size: 14px;
+            color: #727070;
+            margin-bottom: 5px;
+        }
         
         .job .company {
             font-style: italic;
@@ -209,38 +232,93 @@
         }
         
         @media print {
-            body { background: white; }
-            .cv-container { box-shadow: none; }
+            body {
+                background: white;
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+                color-adjust: exact !important;
+            }
+
+            .cv-container {
+                box-shadow: none;
+                margin: 0;
+                padding: 0;
+                width: 100%;
+                max-width: 100%;
+            }
+
+            .header {
+                background: #2c3e50 !important;
+                background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%) !important;
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+                color-adjust: exact !important;
+                page-break-after: avoid;
+                position: relative;
+            }
+
+            .profile-image {
+                border: 3px solid white !important;
+                background: white !important;
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+            }
+
+            .sidebar {
+                background: #f8f8f8 !important;
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+                color-adjust: exact !important;
+                page-break-inside: avoid;
+            }
+
+            .section h2 {
+                border-bottom: 2px solid #666 !important;
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+                page-break-after: avoid;
+            }
+
+            .job {
+                page-break-inside: avoid;
+            }
+
+            .main-content {
+                page-break-inside: avoid;
+            }
+
+            * {
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+                color-adjust: exact !important;
+            }
         }
     </style>
 </head>
 <body>
     <div class="cv-container">
         <div class="header">
-            <div class="profile-image">
-                <img src="../profile-picture/pic-03.png" alt="Karla Iveth Flores Molina">
-            </div>
-            <div class="header-content">
-                <h1>Karla Iveth Flores Molina</h1>
-                <div class="position">PROFESIONAL DE ATENCIÓN AL CLIENTE</div>
+            <div class="header-inner">
+                <div class="profile-image">
+                    <img src="../profile-picture/pic-03.png" alt="Karla Iveth Flores Molina">
+                </div>
+                <div class="header-content">
+                    <h1>Karla Iveth Flores Molina</h1>
+                    <div class="contact-header">
+                        +34 669 025 925  •  karla.flores.cf@gmail.com  •  Barcelona
+                    </div>
+                </div>
             </div>
         </div>
         
         <div class="main-content">
             <div class="sidebar">
                 <div class="section">
-                    <h2>Contacto</h2>
-                    <div class="contact-item phone">+34 669 025 925</div>
-                    <div class="contact-item email">karla.flores.cf@gmail.com</div>
-                    <div class="contact-item location">Barcelona, España</div>
-                </div>
-                
-                <div class="section">
                     <h2>Idiomas</h2>
                     <div>Español: Nativo</div>
                     <div>Catalán: Fluido</div>
-                    <div>Inglés: Intermedio (B2)</div>
-                    <div>Portugués: Básico (A2)</div>
+                    <div>Inglés: Intermedio</div>
+                    <div>Portugués: Básico</div>
                 </div>
                 
                 <div class="section">
@@ -251,23 +329,32 @@
                     <div>• Elaboración de cafés con alta calidad</div>
                     <div>• Comunicación</div>
                 </div>
+
+                <div class="section">
+                    <h2>Educación</h2>
+                    <div class="education-item">
+                        <div>Instituto José Cecilio del Valle, Honduras</div>
+                        <div class="school">Bachillerato</div>
+                        <div class="duration">1999 – 2004</div>
+                    </div>
+                </div>
+
             </div>
+
             
             <div class="content">
                 <div class="section">
                     <h2>Perfil Profesional</h2>
                     <div class="profile-text">
-                        Soy una profesional con excelentes habilidades de atención al cliente y trabajo en equipo. Experimentada en el área de servicios de hostelería y la limpieza comercial. 
-                        <br/>
-                        Puedo aportar una amplia experiencia a su equipo. Mi capacidad demostrada para mantener el orden y la limpieza en diversos contextos destaca mis sólidas habilidades organizativas y resolutivas. 
+                        Soy una profesional con excelentes habilidades de atención al cliente y trabajo en equipo. Experimentada en el área de servicios de hostelería y la limpieza comercial, puedo aportar una amplia experiencia a tu equipo. Mi capacidad demostrada para mantener el orden y la limpieza en diversos contextos destaca mis sólidas habilidades organizativas y resolutivas. 
                     </div>
                 </div>
                 
                 <div class="section">
                     <h2>Experiencia Profesional</h2>
-                    
                     <div class="job">
-                        <h3>Turris Panem S.L., Barcelona, España</h3>
+                        <h3>Turris Panem S.L.</h3>
+                        <h4>Barcelona, España</h4>
                         <div class="company">Dependienta</div>
                         <div class="duration">Marzo 2024 – Presente</div>
                         <ul>
@@ -280,7 +367,8 @@
                     </div>
                     
                     <div class="job">
-                        <h3>ISS Facility Services (Virgin Media), Reino Unido</h3>
+                        <h3>ISS Facility Services (Virgin Media)</h3>
+                        <h4>Reading, Reino Unido</h4>
                         <div class="company">Especialista en Limpieza</div>
                         <div class="duration">Marzo 2023 – Enero 2024</div>
                         <ul>
@@ -291,8 +379,8 @@
                     
                     <div class="job">
                         <h3>Property Support Services (Joyería Goldsmiths)</h3>
+                        <h4>Reading, Reino Unido</h4>
                         <div class="company">Especialista en Limpieza</div>
-                        <div class="company">Reino Unido</div>
                         <div class="duration">Noviembre 2021 – Enero 2023</div>
                         <ul>
                             <li>Mantener estándares de limpieza impecables para exhibición de joyería de alto valor</li>
@@ -301,7 +389,8 @@
                     </div>
                     
                     <div class="job">
-                        <h3>Facilities Management Company (Mitie), Reino Unido</h3>
+                        <h3>Mitie Facilities Services (ESS Energy)</h3>
+                        <h4>Reading, Reino Unido</h4>
                         <div class="company">Especialista en Limpieza</div>
                         <div class="duration">Junio 2019 – Agosto 2022</div>
                         <ul>
@@ -309,39 +398,49 @@
                             <li>Reportar incidencias y necesidades de mantenimiento, asegurando la conservación adecuada de las instalaciones.</li>
                         </ul>
                     </div>
-                    
+
                     <div class="job">
-                        <h3>Pastelería Baixas, Barcelona, España</h3>
-                        <div class="company">Dependienta de Cafetería y Pastelería</div>
-                        <div class="duration">Marzo 2016 – Agosto 2018</div>
+                        <h3>Cineworld - Imax</h3>
+                        <h4>Watford, Reino Unido</h4>
+                        <div class="company">Especialista en Limpieza</div>
+                        <div class="duration">Noviembre 2018 – Mayo 2019</div>
                         <ul>
-                            <li>Proporcioné atención al cliente excepcional en entornos de panadería comercial durante más de 10 años</li>
-                            <li>Procesé transacciones de clientes y mantuve exhibiciones de productos atractivas</li>
-                            <li>Gestioné el control de inventario y aseguré el estricto cumplimiento de seguridad alimentaria</li>
-                            <li>Camarera</li>
+                            <li>Limpieza de las salas del cine</li>
                         </ul>
                     </div>
 
                     <div class="job">
-                        <h3>Masramon, Vic, España</h3>
+                        <h3>AH support</h3>
+                        <h4>Watford, Reino Unido</h4>
+                        <div class="company">Especialista en Limpieza</div>
+                        <div class="duration">Septiembre 2018 – Mayo 2019</div>
+                        <ul>
+                            <li>Limpieza y desinfección de oficinas</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="job">
+                        <h3>Pastisseria Baixas</h3>
+                        <h4>Barcelona, Cataluña, España</h4>
+                        <div class="company">Dependienta de Cafetería y Pastelería</div>
+                        <div class="duration">Marzo 2016 – Agosto 2018</div>
+                        <ul>
+                            <li>Atención al cliente tanto en pastisseria como en e restaurante</li>
+                            <li>Gestión de caja</li>
+                        </ul>
+                    </div>
+
+                    <div class="job">
+                        <h3>Pastisseria Masramon</h3>
+                        <h4>Vic, Cataluña, España</h4>
                         <div class="company">Dependienta de Cafetería y Pastelería</div>
                         <div class="duration">Junio 2008 – Marzo 2016</div>
                         <ul>
-                            <li>Atención al cliente</li>
-                            <li>Mantuve exhibiciones de productos atractivas</li>
-                            <li>Gestioné el control de inventario y aseguré el estricto cumplimiento de seguridad alimentaria</li>
-                            <li>Cierre de caja</li>
+                            <li>Atención al cliente tanto en pastisseria como en cafetería</li>
+                            <li>Mantener exhibiciones de productos atractivas</li>
+                            <li>Gestión de caja</li>
                             <li>Gestión de pedidos</li>
                         </ul>
-                    </div>
-                </div>
-                
-                <div class="section">
-                    <h2>Educación</h2>
-                    <div class="education-item">
-                        <h3>Instituto José Cecilio del Valle, Honduras</h3>
-                        <div class="school">Bachillerato</div>
-                        <div class="duration">1999 – 2004</div>
                     </div>
                 </div>
             </div>
