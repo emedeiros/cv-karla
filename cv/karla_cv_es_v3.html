@@ -226,8 +226,66 @@
         }
         
         @media print {
-            body { background: white; }
-            .cv-container { box-shadow: none; }
+            body {
+                background: white;
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+                color-adjust: exact !important;
+            }
+
+            .cv-container {
+                box-shadow: none;
+                margin: 0;
+                padding: 0;
+                width: 100%;
+                max-width: 100%;
+            }
+
+            .header {
+                background: #2c3e50 !important;
+                background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%) !important;
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+                color-adjust: exact !important;
+                page-break-after: avoid;
+                position: relative;
+            }
+
+            .profile-image {
+                border: 3px solid white !important;
+                background: white !important;
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+            }
+
+            .sidebar {
+                background: #f8f8f8 !important;
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+                color-adjust: exact !important;
+                page-break-inside: avoid;
+            }
+
+            .section h2 {
+                border-bottom: 2px solid #666 !important;
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+                page-break-after: avoid;
+            }
+
+            .job {
+                page-break-inside: avoid;
+            }
+
+            .main-content {
+                page-break-inside: avoid;
+            }
+
+            * {
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+                color-adjust: exact !important;
+            }
         }
     </style>
 </head>
