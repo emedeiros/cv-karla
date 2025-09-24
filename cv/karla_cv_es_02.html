@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Karla Iveth Flores Molina - Currículum Vitae</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f5f5f5;
+            color: #333;
+        }
+        
+        .cv-container {
+            max-width: 210mm;
+            min-height: 297mm;
+            margin: 0 auto;
+            background: white;
+            position: relative;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+        }
+        
+        .header {
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 200px;
+            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            z-index: 2;
+        }
+
+        .header-inner {
+            max-width: 210mm;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            padding: 40px 60px;
+        }
+        
+        .profile-image {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            margin-right: 40px;
+            flex-shrink: 0;
+            overflow: hidden;
+            border: 3px solid rgba(255,255,255,0.3);
+        }
+        
+        .profile-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+        }
+        
+        .header-content h1 {
+            font-size: 38px;
+            font-weight: 300;
+            margin-bottom: 10px;
+        }
+        
+        .header-content .position {
+            font-size: 18px;
+            opacity: 0.9;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .contact-header {
+            font-size: 16px;
+            font-weight: 300;
+            margin-top: 15px;
+            letter-spacing: 0.5px;
+            opacity: 0.95;
+        }
+        
+        .main-content {
+            display: flex;
+            min-height: calc(297mm - 200px);
+            position: relative;
+            z-index: 1;
+        }
+        
+        .sidebar {
+            width: 230px;
+            background: #f8f8f8;
+            padding: 40px 10px;
+            flex-shrink: 0;
+            font-size: 12px;
+        }
+        
+        .content {
+            flex: 1;
+            padding: 40px 50px;
+        }
+        
+        .section {
+            margin-bottom: 40px;
+        }
+        
+        .section h2 {
+            font-size: 14px;
+            font-weight: bold;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+            color: #333;
+            border-bottom: 2px solid #666;
+            padding-bottom: 8px;
+        }
+        
+        .sidebar h2 {
+            border-bottom: 2px solid #666;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+            font-size: 14px;
+        }
+        
+        .contact-item::before {
+            content: "";
+            width: 20px;
+            height: 20px;
+            margin-right: 15px;
+            background: #666;
+            border-radius: 3px;
+            flex-shrink: 0;
+        }
+        
+        .contact-item.phone::before { content: "📞"; background: none; }
+        .contact-item.email::before { content: "✉️"; background: none; }
+        .contact-item.location::before { content: "📍"; background: none; }
+        .contact-item.linkedin::before { content: "💼"; background: none; }
+        
+        .languages div, .skills div, .interests div {
+            margin-bottom: 12px;
+            font-size: 14px;
+        }
+        
+        .languages div:first-child, .skills div:first-child {
+            font-weight: bold;
+        }
+        
+        .job {
+            margin-bottom: 30px;
+        }
+        
+        .job h3 {
+            font-size: 14px;
+            color: #333;
+            margin-bottom: 5px;
+        }
+
+        .job h4 {
+            font-size: 12px;
+            color: #727070;
+            margin-bottom: 5px;
+        }
+        
+        .job .company {
+            font-style: italic;
+            color: #666;
+            margin-bottom: 8px;
+            font-size: 12px;
+        }
+        
+        .job .duration {
+            color: #999;
+            font-size: 12px;
+            margin-bottom: 15px;
+        }
+        
+        .job ul {
+            list-style: none;
+            padding-left: 0;
+        }
+        
+        .job li {
+            margin-bottom: 8px;
+            position: relative;
+            padding-left: 20px;
+            font-size: 12px;
+            line-height: 1.5;
+        }
+        
+        .job li::before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            color: #666;
+            font-weight: bold;
+        }
+        
+        .education-item {
+            margin-bottom: 25px;
+        }
+        
+        .education-item h3 {
+            font-size: 18px;
+            color: #333;
+            margin-bottom: 5px;
+        }
+        
+        .education-item .school {
+            font-style: italic;
+            color: #666;
+            margin-bottom: 5px;
+        }
+        
+        .education-item .duration {
+            color: #999;
+            font-size: 14px;
+        }
+        
+        .profile-text {
+            font-size: 14px;
+            line-height: 1.6;
+            text-align: justify;
+        }
+        
+        /* Page 2+ single column layout */
+        .page2-content {
+            display: none;
+        }
+
+        @media print {
+            body {
+                background: white;
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+            }
+
+            .cv-container {
+                box-shadow: none;
+                margin: 0;
+                padding: 0;
+                width: 100%;
+                max-width: 100%;
+            }
+
+            .header {
+                background: #2c3e50 !important;
+                background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%) !important;
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+                page-break-after: avoid;
+                position: relative;
+            }
+
+            .profile-image {
+                border: 3px solid white !important;
+                background: white !important;
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+            }
+
+            .sidebar {
+                background: #f8f8f8 !important;
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+                page-break-inside: avoid;
+            }
+
+            .section h2 {
+                border-bottom: 2px solid #666 !important;
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+                page-break-after: avoid;
+            }
+
+            .job {
+                page-break-inside: avoid;
+            }
+
+            /* Page 2 content - full width, single column */
+            .page2-content {
+                display: block;
+                width: 100%;
+                max-width: 100%;
+                padding: 40px 60px;
+                page-break-before: always;
+                background: white;
+            }
+
+            .page2-content .section {
+                width: 100%;
+                max-width: 100%;
+            }
+
+            .page2-content h2 {
+                font-size: 16px;
+                font-weight: bold;
+                text-transform: uppercase;
+                margin-bottom: 20px;
+                color: #333;
+                border-bottom: 2px solid #666 !important;
+                padding-bottom: 8px;
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+            }
+
+            .page2-content .job {
+                margin-bottom: 30px;
+            }
+
+            * {
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="cv-container">
+        <div class="header">
+            <div class="header-inner">
+                <div class="profile-image">
+                    <img src="../profile-picture/pic-03.png" alt="Karla Iveth Flores Molina">
+                </div>
+                <div class="header-content">
+                    <h1>Karla Iveth Flores Molina</h1>
+                    <div class="contact-header">
+                        +34 669 025 925  •  karla.flores.cf@gmail.com  •  Barcelona
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="main-content">
+            <div class="sidebar">
+                <div class="section">
+                    <h2>Idiomas</h2>
+                    <div>Español: Nativo</div>
+                    <div>Catalán: Fluido</div>
+                    <div>Inglés: Intermedio</div>
+                    <div>Portugués: Básico</div>
+                </div>
+                
+                <div class="section">
+                    <h2>Competencias Principales</h2>
+                    <div>• Excelencia en Atención al Cliente</div>
+                    <div>• Colaboración en Equipo</div>
+                    <div>• Organización</div>
+                    <div>• Elaboración de cafés con alta calidad</div>
+                    <div>• Comunicación</div>
+                </div>
+
+                <div class="section">
+                    <h2>Educación</h2>
+                    <div class="education-item">
+                        <div>Instituto José Cecilio del Valle, Honduras</div>
+                        <div class="school">Bachillerato</div>
+                        <div class="duration">1999 – 2004</div>
+                    </div>
+                </div>
+
+            </div>
+
+            
+            <div class="content">
+                <div class="section">
+                    <h2>Perfil Profesional</h2>
+                    <div class="profile-text">
+                        Soy una profesional con excelentes habilidades de atención al cliente y trabajo en equipo. Experimentada en el área de servicios de hostelería y la limpieza comercial, puedo aportar una amplia experiencia a tu equipo. Mi capacidad demostrada para mantener el orden y la limpieza en diversos contextos destaca mis sólidas habilidades organizativas y resolutivas. 
+                    </div>
+                </div>
+                
+                <div class="section">
+                    <h2>Experiencia Profesional</h2>
+                    <div class="job">
+                        <h3>Turris Panem S.L.</h3>
+                        <h4>Barcelona, España</h4>
+                        <div class="company">Dependienta</div>
+                        <div class="duration">Marzo 2024 – Presente</div>
+                        <ul>
+                            <li>Visual Merchandising - Organización de la tienda</li>
+                            <li>Atención al cliente</li>
+                            <li>Entrenamiento de nuevos empleados</li>
+                            <li>Gestión y cierre de caja</li>
+                            <li>Gestión de pedidos y encargos</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="job">
+                        <h3>ISS Facility Services (Virgin Media)</h3>
+                        <h4>Reading, Reino Unido</h4>
+                        <div class="company">Especialista en Limpieza</div>
+                        <div class="duration">Marzo 2023 – Enero 2024</div>
+                        <ul>
+                            <li>Limpieza y desinfección de oficinas, garantizando espacios de trabajo higiénicos y ordenados.</li>
+                            <li>Reportar incidencias y necesidades de mantenimiento, asegurando la conservación adecuada de las instalaciones.</li>
+                        </ul>
+                    </div>
+                    
+                    
+                    
+                </div>
+            </div>
+        </div>
+
+        <!-- Page 2 content - Full width single column -->
+        <div class="page2-content">
+            <div class="section">
+                <div class="job">
+                    <h3>Property Support Services (Joyería Goldsmiths)</h3>
+                    <h4>Reading, Reino Unido</h4>
+                    <div class="company">Especialista en Limpieza</div>
+                    <div class="duration">Noviembre 2021 – Enero 2023</div>
+                    <ul>
+                        <li>Mantener estándares de limpieza impecables para exhibición de joyería de alto valor</li>
+                        <li>Coordinación efectiva con el personal comercial para minimizar interrupciones durante las operaciones comerciales</li>
+                    </ul>
+                </div>
+
+                <div class="job">
+                    <h3>Mitie Facilities Services (ESS Energy)</h3>
+                    <h4>Reading, Reino Unido</h4>
+                    <div class="company">Especialista en Limpieza</div>
+                    <div class="duration">Junio 2019 – Agosto 2022</div>
+                    <ul>
+                        <li>Limpieza y desinfección de oficinas, garantizando espacios de trabajo higiénicos y ordenados.</li>
+                        <li>Reportar incidencias y necesidades de mantenimiento, asegurando la conservación adecuada de las instalaciones.</li>
+                    </ul>
+                </div>
+
+                <div class="job">
+                    <h3>Cineworld - Imax</h3>
+                    <h4>Watford, Reino Unido</h4>
+                    <div class="company">Especialista en Limpieza</div>
+                    <div class="duration">Septiembre 2018 – Mayo 2019</div>
+                    <ul>
+                        <li>Limpieza de las salas del cine</li>
+                    </ul>
+                </div>
+
+                <div class="job">
+                    <h3>Pastisseria Baixas</h3>
+                    <h4>Barcelona, Cataluña, España</h4>
+                    <div class="company">Dependienta de Cafetería y Pastelería</div>
+                    <div class="duration">Marzo 2016 – Agosto 2018</div>
+                    <ul>
+                        <li>Atención al cliente tanto en pastisseria como en e restaurante</li>
+                        <li>Gestión de caja</li>
+                    </ul>
+                </div>
+
+                <div class="job">
+                    <h3>Pastisseria Masramon</h3>
+                    <h4>Vic, Cataluña, España</h4>
+                    <div class="company">Dependienta de Cafetería y Pastelería</div>
+                    <div class="duration">Junio 2008 – Marzo 2016</div>
+                    <ul>
+                        <li>Atención al cliente tanto en pastisseria como en cafetería</li>
+                        <li>Mantener exhibiciones de productos atractivas</li>
+                        <li>Gestión de caja</li>
+                        <li>Gestión de pedidos</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
